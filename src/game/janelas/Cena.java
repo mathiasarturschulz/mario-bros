@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import jplay.GameImage;
-import jplay.Keyboard;
 import jplay.Parallax;
 import jplay.Window;
 
 public class Cena implements Runnable {
 
     private final Window JANELA;
-    private final Keyboard TECLADO;
     private final Parallax FUNDO;
     public final Jogador MARIO, LUIGI;
     public static List<Objeto> OBJETOS;
@@ -23,7 +21,6 @@ public class Cena implements Runnable {
 
     public Cena() {
         JANELA = new Window(800, 350);
-        TECLADO = JANELA.getKeyboard();
         FUNDO = new Parallax();
         rodando = true;
 

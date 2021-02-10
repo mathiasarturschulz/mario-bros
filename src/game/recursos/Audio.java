@@ -1,6 +1,5 @@
 package game.recursos;
 
-import game.janelas.Cena;
 import jplay.Sound;
 
 public class Audio implements Runnable {

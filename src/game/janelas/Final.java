@@ -1,6 +1,5 @@
 package game.janelas;
 
-import game.recursos.Audio;
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
