@@ -1,6 +1,6 @@
 # mario-bros
 
-Jogo do Mario Bros desenvolvido na linguagem de programação Java com o auxílio da biblioteca JPlay (versão 3.0), uma game engine para criação de jogos 2D
+Jogo do Mario Bros desenvolvido na linguagem de programação Java com o auxílio da biblioteca [JPlay](http://www2.ic.uff.br/jplay/) (versão 3.0), uma game engine para criação de jogos 2D
 
 Esta versão do game é uma melhoria da versão disponibilizada por Maurício Vieira e Rodrigo Curvello
 
