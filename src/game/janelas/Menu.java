@@ -9,7 +9,8 @@ public class Menu {
 
     public static void main(String[] args) {
         
-        Window janela = new Window(800, 350);
+        Window janela = new Window(800, 600);
+        janela.getCompatibleDisplayMode();
         Keyboard teclado = janela.getKeyboard();
         
         //Carrega uma imagem de fundo do menu
@@ -20,7 +21,7 @@ public class Menu {
         
         //Starta a Thread responsável pelo áudio do jogo
         Thread audio = new Thread(new Audio());
-        audio.start();
+//        audio.start();
         
         Audio.executando = true; //Inicia a música de fundo
         

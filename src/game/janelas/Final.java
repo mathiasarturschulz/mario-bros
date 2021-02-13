@@ -10,6 +10,7 @@ public class Final {
         Cena.rodando = false; // Para a execução do jogo
 
         Window janela = new Window(250, 250);
+        janela.getCompatibleDisplayMode();
         Keyboard teclado = janela.getKeyboard();
 
         GameImage marioWins = new GameImage("imagens/marioWins.jpg");

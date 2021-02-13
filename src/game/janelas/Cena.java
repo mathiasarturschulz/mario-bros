@@ -20,7 +20,8 @@ public class Cena implements Runnable {
     public static boolean rodando;
 
     public Cena() {
-        JANELA = new Window(800, 350);
+        JANELA = new Window(800, 600);
+        JANELA.getCompatibleDisplayMode();
         FUNDO = new Parallax();
         rodando = true;
 
