@@ -26,17 +26,21 @@ public class Menu {
         Audio.executando = true; //Inicia a música de fundo
         
         boolean isMenu = true;
-        
+
         while (isMenu) {      
             fundo.draw();
             fundo.update();
             janela.update();
-            
+
             //Vai para janela principal do jogo ao teclar ENTER
             if (teclado.keyDown(Keyboard.ENTER_KEY)) {                
                 new Thread(new Cena(janela)).start();
                 isMenu = false;
             }
+            if (teclado.keyDown(Keyboard.ESCAPE_KEY)) {
+                //Fecha a janela e sai do jogo  
+                janela.exit();	
+        	}
         }
     }
 }
