@@ -7,6 +7,8 @@ Este erro já aparece antes de iniciar o jogo e continua aparecendo constantemen
 Pesquisando achei um método da classe Windows para resolver esse problema, chamado:
 JANELA.getCompatibleDisplayMode();
 
+Obs: Se setar a resolução como menor que 800x600 continuará gerando o erro
+
 - [x] Atualizar as telas do game (erro_multiplas_telas.png)
 
 Quando o jogo está rodando e inicia uma nova tela não remove a antiga
@@ -18,7 +20,8 @@ Cena.java  -> Tela do jogo
 Final.java -> Tela de apresentação do ganhador
 Todas essas telas quando utilizadas eram abertas em uma nova aba
 
-- [ ] Atualizar a resolução do jogo
+- [ ] Analisar a possibilidade de atualizar a resolução do jogo, por exemplo: Colocar em tela cheia
+janela.setFullScreen();
 
 - [ ] Analisar a utilização das threads e encontrar possíveis melhorias
 
