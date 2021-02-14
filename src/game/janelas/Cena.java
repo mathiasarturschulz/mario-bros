@@ -13,15 +13,16 @@ import jplay.Window;
 
 public class Cena implements Runnable {
 
-    private final Window JANELA;
+    private Window JANELA;
     private final Parallax FUNDO;
     public final Jogador MARIO, LUIGI;
     public static List<Objeto> OBJETOS;
     public static boolean rodando;
 
-    public Cena() {
-        JANELA = new Window(800, 600);
-        JANELA.getCompatibleDisplayMode();
+    public Cena(Window JANELA) {
+    	this.JANELA = JANELA;
+//        JANELA = new Window(800, 600);
+//        JANELA.getCompatibleDisplayMode();
         FUNDO = new Parallax();
         rodando = true;
 

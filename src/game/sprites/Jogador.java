@@ -10,6 +10,7 @@ import jplay.Window;
 
 public class Jogador extends Sprite {
 
+	private Window janela;
     private final Keyboard TECLADO;
     private final Pontuacao PONTUACAO;
     private final int ID, FREQUENCIA;
@@ -17,6 +18,7 @@ public class Jogador extends Sprite {
 
     public Jogador(int id, String path, int frames, Window janela) {
         super(path, frames);
+    	this.janela = janela;
 
         PONTUACAO = new Pontuacao(janela);
 
@@ -133,9 +135,9 @@ public class Jogador extends Sprite {
             } else {
                 Audio.bateu = true;
                 if (ID == 1) {
-                    new Final(2);
+                    new Final(janela, 2);
                 } else {
-                    new Final(1);
+                    new Final(janela, 1);
                 }
             }
         }

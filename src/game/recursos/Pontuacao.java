@@ -6,6 +6,7 @@ import jplay.Window;
 
 public class Pontuacao {
 
+	private Window janela;
     private final int TOTAL;
     private Jogador jogador;
     private int moedas;
@@ -15,6 +16,7 @@ public class Pontuacao {
          * Define a pontuação máxima a ser alcançada os jogadores consigam se manter
          * na partida sem colidir com nenhum objeto
          */
+    	this.janela = janela;
         this.TOTAL = 25;
     }
 
@@ -36,7 +38,7 @@ public class Pontuacao {
      */
     private void verificarPontos() {
         if (moedas == TOTAL) {
-            new Final(jogador.getID());
+            new Final(janela, jogador.getID());
         }
     }
 

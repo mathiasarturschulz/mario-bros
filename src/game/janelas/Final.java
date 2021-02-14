@@ -6,11 +6,11 @@ import jplay.Window;
 
 public class Final {
 
-    public Final(int idVencedor) {
+    public Final(Window janela, int idVencedor) {
         Cena.rodando = false; // Para a execução do jogo
 
-        Window janela = new Window(250, 250);
-        janela.getCompatibleDisplayMode();
+//        janela = new Window(250, 250);
+//        janela.getCompatibleDisplayMode();
         Keyboard teclado = janela.getKeyboard();
 
         GameImage marioWins = new GameImage("imagens/marioWins.jpg");
@@ -30,7 +30,7 @@ public class Final {
             
             //Reinicia o jogo para obter uma revanche
             if (teclado.keyDown(Keyboard.ENTER_KEY)) {                
-                new Cena().run();
+                new Cena(janela).run();
                 isFinal = false;
             }
         }

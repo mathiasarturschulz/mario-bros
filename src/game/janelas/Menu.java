@@ -34,7 +34,7 @@ public class Menu {
             
             //Vai para janela principal do jogo ao teclar ENTER
             if (teclado.keyDown(Keyboard.ENTER_KEY)) {                
-                new Thread(new Cena()).start();
+                new Thread(new Cena(janela)).start();
                 isMenu = false;
             }
         }
