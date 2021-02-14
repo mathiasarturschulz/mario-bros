@@ -15,7 +15,7 @@ public class Final {
 
         GameImage marioWins = new GameImage("imagens/marioWins.jpg");
         GameImage luigiWins = new GameImage("imagens/luigiWins.jpg");
-        
+
         boolean isFinal = true;
 
         while (isFinal) {
@@ -25,11 +25,11 @@ public class Final {
             } else {
                 luigiWins.draw();
             }
-            
+
             janela.update();
-            
+
             //Reinicia o jogo para obter uma revanche
-            if (teclado.keyDown(Keyboard.ENTER_KEY)) {                
+            if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                 new Cena(janela).run();
                 isFinal = false;
             }

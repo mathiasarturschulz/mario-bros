@@ -30,7 +30,7 @@ public class Jogador extends Sprite {
         TECLADO.addKey(KeyEvent.VK_S, Keyboard.DETECT_EVERY_PRESS);
 
         ID = id;
-        
+
         /**
          * Define uma frequência e inicializa um contador, utilizados para auxiliar
          * na troca de frames dos personagens ao correr
@@ -67,14 +67,14 @@ public class Jogador extends Sprite {
 
     /**
      * Método responsável pela movimentação dos jogadores Ações possíveis: andar
-     * para direita, esquerda, pular e agachar. 
-     * Troca os frames de pular e agachar 
+     * para direita, esquerda, pular e agachar.
+     * Troca os frames de pular e agachar
      * (AJUSTAR: colocar essa troca no método alterarFrame()).
      */
     int aux = 0; //Variavel auxiliar para o audio do pulo
     public void mover() {
         if (ID == 1) {
-            //Define os movimentos possíveis para o mario = ID 1            
+            //Define os movimentos possíveis para o mario = ID 1
             //Define as teclas de movimento no eixo X, assim como a velocidade
             this.moveX(Keyboard.LEFT_KEY, Keyboard.RIGHT_KEY, 2);
             this.jump(Keyboard.UP_KEY);
@@ -103,7 +103,7 @@ public class Jogador extends Sprite {
                 }
             }
         }
-        
+
         /**
          * Verificação auxiliar para que o áudio do pulo não seja repetido enquanto
          * o personagem estiver no ar, e sim tocado apenas uma vez

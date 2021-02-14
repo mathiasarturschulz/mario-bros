@@ -109,7 +109,7 @@ public class Cena implements Runnable {
         this.adicionarObjetos(); //Adiciona os sprites de objetos em uma lista
 
         while (rodando) {
-            FUNDO.drawLayers(); //Desenha os layers criados, neste caso apenas 1            
+            FUNDO.drawLayers(); //Desenha os layers criados, neste caso apenas 1
             FUNDO.repeatLayers(800, 350, true); //Faz o fundo voltar as coordenadas iniciais
             FUNDO.moveLayersStandardX(true); //Define a movimentação no eixo X para Esquerda
 
