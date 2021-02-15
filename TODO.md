@@ -20,11 +20,12 @@ Cena.java  -> Tela do jogo
 Final.java -> Tela de apresentação do ganhador
 Todas essas telas quando utilizadas eram abertas em uma nova aba
 
+- [x] Analisar e implementar um botão para fechar o jogo
+Ao pressionar ESC fecha o jogo
+
 - [ ] Analisar a possibilidade de atualizar a resolução do jogo, por exemplo: Colocar em tela cheia
 janela.setFullScreen();
 
 - [ ] Analisar a utilização das threads e encontrar possíveis melhorias
-
-- [ ] Analisar a possibilidade de implementar um botão para fechar o jogo
 
 - [ ] Melhorar a documentação do projeto

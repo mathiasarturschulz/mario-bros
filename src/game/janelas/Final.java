@@ -8,9 +8,6 @@ public class Final {
 
     public Final(Window janela, int idVencedor) {
         Cena.rodando = false; // Para a execução do jogo
-
-//        janela = new Window(250, 250);
-//        janela.getCompatibleDisplayMode();
         Keyboard teclado = janela.getKeyboard();
 
         GameImage marioWins = new GameImage("imagens/marioWins.jpg");
@@ -33,6 +30,10 @@ public class Final {
                 new Cena(janela).run();
                 isFinal = false;
             }
+            // se pressionou ESC fecha a janela e sai do jogo
+            if (teclado.keyDown(Keyboard.ESCAPE_KEY)) {
+                janela.exit();
+        	}
         }
     }
 }

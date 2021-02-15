@@ -10,7 +10,11 @@ import java.util.Random;
 import jplay.GameImage;
 import jplay.Parallax;
 import jplay.Window;
+import jplay.Keyboard;
 
+/**
+ * Classe da tela principal do jogo
+ */
 public class Cena implements Runnable {
 
     private Window JANELA;
@@ -19,10 +23,11 @@ public class Cena implements Runnable {
     public static List<Objeto> OBJETOS;
     public static boolean rodando;
 
+    /**
+     * Construtor da classe
+     */
     public Cena(Window JANELA) {
     	this.JANELA = JANELA;
-//        JANELA = new Window(800, 600);
-//        JANELA.getCompatibleDisplayMode();
         FUNDO = new Parallax();
         rodando = true;
 
@@ -100,15 +105,21 @@ public class Cena implements Runnable {
      * Método responsável pelo looping do jogo. Atualiza todos os objetos e
      * personagens constantemente
      */
-    @Override
     public void run() {
         //Define uma imagem de placar, assim como a fonte das pontuações
         GameImage placar = new GameImage("imagens/placar.png");
         Font fonte = new Font("Comic Sans MS", Font.TRUETYPE_FONT, 30);
+        // acessa o teclado
+        Keyboard teclado = JANELA.getKeyboard();
 
         this.adicionarObjetos(); //Adiciona os sprites de objetos em uma lista
 
         while (rodando) {
+            // se pressionou ESC fecha a janela e sai do jogo
+            if (teclado.keyDown(Keyboard.ESCAPE_KEY)) {
+                JANELA.exit();
+        	}
+
             FUNDO.drawLayers(); //Desenha os layers criados, neste caso apenas 1
             FUNDO.repeatLayers(800, 350, true); //Faz o fundo voltar as coordenadas iniciais
             FUNDO.moveLayersStandardX(true); //Define a movimentação no eixo X para Esquerda
