@@ -5,40 +5,52 @@ import jplay.Keyboard;
 import jplay.Sprite;
 import jplay.Window;
 
+/**
+ * Classe main do projeto
+ */
 public class Menu {
 
+	/**
+	 * Método main
+	 *
+	 * @param args
+	 */
     public static void main(String[] args) {
 
+    	// cria a janela do jogo
         Window janela = new Window(800, 600);
         janela.getCompatibleDisplayMode();
+
+        // acessa o teclado
         Keyboard teclado = janela.getKeyboard();
 
-        //Carrega uma imagem de fundo do menu
+        // carrega a imagem de fundo do menu
         Sprite fundo = new Sprite("imagens/menu.png", 2);
-
-        //Alterna os frames do menu para dar efeito de gif ao "PRESS START"
+        fundo.y = 115;
+        // seta um tempo maximo para exibição de todos os frames
         fundo.setTotalDuration(1000);
 
-        //Starta a Thread responsável pelo áudio do jogo
+        // // inicia a thread responsável pelo áudio do jogo
         // Thread audio = new Thread(new Audio());
         // audio.start();
-
-        Audio.executando = true; //Inicia a música de fundo
+        // // inicia a música de fundo
+        // Audio.executando = true;
 
         boolean isMenu = true;
-
         while (isMenu) {
+        	// desenha a imagem na tela
             fundo.draw();
+            // atualiza o frame do desenho
             fundo.update();
             janela.update();
 
-            //Vai para janela principal do jogo ao teclar ENTER
+            // se pressionou ENTER redireciona para a tela principal do jogo
             if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                 new Thread(new Cena(janela)).start();
                 isMenu = false;
             }
+            // se pressionou ESC fecha a janela e sai do jogo
             if (teclado.keyDown(Keyboard.ESCAPE_KEY)) {
-                //Fecha a janela e sai do jogo
                 janela.exit();
         	}
         }
