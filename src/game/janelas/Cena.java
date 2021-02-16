@@ -28,18 +28,10 @@ public class Cena implements Runnable {
      */
     public Cena(Window JANELA) {
     	this.JANELA = JANELA;
-        FUNDO = new Parallax();
         rodando = true;
 
-        /**
-         * Com o parallax é possível adicionar várias camadas para o fundo Cada
-         * camada pode transitar em uma velocidade diferente OBS: Foi utilizado
-         * apenas uma cada de fundo para o jogo, deve ser melhorado para pelo
-         * menos duas camadas, uma para as nuvens e outra para o chão. Com isso
-         * o chão pode transitar na velocidade dos objetos, enquanto as nuvens
-         * transitam mais lentamente, como acontece no jogo original
-         */
-        FUNDO.add("imagens/fundo.png");
+        FUNDO = new Parallax();
+        FUNDO.add("imagens/background.png");
         FUNDO.setVelAllLayers(1, 0);
 
         MARIO = new Jogador(1, "imagens/mario.png", 4, JANELA);
@@ -121,7 +113,7 @@ public class Cena implements Runnable {
         	}
 
             FUNDO.drawLayers(); //Desenha os layers criados, neste caso apenas 1
-            FUNDO.repeatLayers(800, 350, true); //Faz o fundo voltar as coordenadas iniciais
+            FUNDO.repeatLayers(800, 600, true); //Faz o fundo voltar as coordenadas iniciais
             FUNDO.moveLayersStandardX(true); //Define a movimentação no eixo X para Esquerda
 
             //Desenha os jogadores e habilita a movimentação dos mesmos
