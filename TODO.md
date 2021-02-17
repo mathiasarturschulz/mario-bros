@@ -27,6 +27,14 @@ Ao pressionar ESC fecha o jogo
 A nova resolução é 800x600, dessa forma foi necessário atualizar as imagens de fundo, entretanto a imagem de fundo na tela principal deve ter a resolução que foi setada na classe Window, o que tornou uma etapa trabalhosa pois foi necessário desenvolver uma imagem 800x600
 Com a nova resolução também foi necessário atualizar as localizações dos persongens e objetos na tela
 
+- [x] Corrigido bug de aparecer dois objetos juntos
+Pelo o que eu entendi aparece dois objetos de uma vez porque ocorreu um bug
+Todos os objetos são gerados antes de iniciar o jogo, como eram gerados 100 objetos a distância dos últimos objetos estava quebrando a biblioteca e setando eles em uma distância não definida pelo usuário e as vezes sem validação de colisão
+Um exemplo disso é quando tem um bloco e depois o cano, se passar abaixado entre os dois não resulta erro
+
+- [x] Adicionar um novo objeto, que é o foguete
+Ele é um pouco mais rápido que outros objetos
+
 - [ ] Analisar a utilização das threads e encontrar possíveis melhorias
 
 - [ ] Melhorar a documentação do projeto

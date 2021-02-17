@@ -57,24 +57,33 @@ public class Cena implements Runnable {
         String moedaIcon = "imagens/moeda.png";
         String canoIcon = "imagens/cano.png";
         String blocoIcon = "imagens/bloco.png";
+        String foguete = "imagens/foguete.png";
 
         Random r = new Random();
-        int valor, valor2, moedaY;
+        int tipoObjeto, tipoMoeda, alturaMoeda;
+        int distanciaObjetos = 800;
 
-        for (int i = 1; i <= 100; i++) {
-            moedaY = 440;
-            valor = r.nextInt(2);
-            if (valor == 0) {
-                OBJETOS.add(new Objeto(canoIcon, 800 * i, 472, "cano"));
-            } else {
-                valor2 = r.nextInt(2);
-                OBJETOS.add(new Objeto(blocoIcon, 800 * i, 472, "bloco"));
-                if (valor2 == 0) {
-                    moedaY = 506;
+        for (int i = 1; i <= 80; i++) {
+            alturaMoeda = 435;
+            tipoObjeto = r.nextInt(3);
+            if (tipoObjeto == 0) {
+                // se é 0 adiciona o objeto cano
+                OBJETOS.add(new Objeto(canoIcon, distanciaObjetos * i, 472, "cano"));
+                // adiciona uma moeda em cima
+                OBJETOS.add(new Objeto(moedaIcon, distanciaObjetos * i, alturaMoeda, "moeda"));
+            } else if (tipoObjeto == 1) {
+                // se é 1 adiciona o objeto bloco
+                OBJETOS.add(new Objeto(blocoIcon, distanciaObjetos * i, 472, "bloco"));
+                // adiciona uma moeda em cima, nesse caso a moeda pode estar em cima ou em baixo do objeto
+                tipoMoeda = r.nextInt(2);
+                if (tipoMoeda == 0) {
+                    alturaMoeda = 506;
                 }
+                OBJETOS.add(new Objeto(moedaIcon, distanciaObjetos * i, alturaMoeda, "moeda"));
+            } else {
+                // se é 2 adiciona o objeto bloco
+                OBJETOS.add(new Objeto(foguete, distanciaObjetos * i, 472, "foguete"));
             }
-
-            OBJETOS.add(new Objeto(moedaIcon, 800 * (i + 3), moedaY, "moeda"));
         }
     }
 
@@ -102,7 +111,7 @@ public class Cena implements Runnable {
         Font fonte = new Font("Comic Sans MS", Font.TRUETYPE_FONT, 30);
         // acessa o teclado
         Keyboard teclado = JANELA.getKeyboard();
-        // cria uma lista com 100 objetos
+        // cria uma lista com 80 objetos
         this.adicionarObjetos();
 
         while (RODANDO) {
