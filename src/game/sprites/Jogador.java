@@ -8,6 +8,9 @@ import jplay.Keyboard;
 import jplay.Sprite;
 import jplay.Window;
 
+/**
+* Classe que representa a entidade jogador
+*/
 public class Jogador extends Sprite {
 
 	private Window janela;
@@ -16,20 +19,22 @@ public class Jogador extends Sprite {
     private final int ID, FREQUENCIA;
     private int contador;
 
+    /**
+     * Construtor
+     */
     public Jogador(int id, String path, int frames, Window janela) {
         super(path, frames);
     	this.janela = janela;
 
+        ID = id;
         PONTUACAO = new Pontuacao(janela);
 
         TECLADO = janela.getKeyboard();
-        //Adiciona teclas não padrões do JPlay Keyboard
+        // adiciona as teclas não padrões do jPlay Keyboard
         TECLADO.addKey(KeyEvent.VK_A, Keyboard.DETECT_EVERY_PRESS);
         TECLADO.addKey(KeyEvent.VK_D, Keyboard.DETECT_EVERY_PRESS);
         TECLADO.addKey(KeyEvent.VK_W, Keyboard.DETECT_EVERY_PRESS);
         TECLADO.addKey(KeyEvent.VK_S, Keyboard.DETECT_EVERY_PRESS);
-
-        ID = id;
 
         /**
          * Define uma frequência e inicializa um contador, utilizados para auxiliar
@@ -38,14 +43,14 @@ public class Jogador extends Sprite {
         FREQUENCIA = 25;
         contador = 0;
 
-        /**
-         * Define o chão dos personagens. É necessário quando se utiliza o
-         * método jump(), para que o personagem não ultrapasse esse valor quando
-         * cair do pulo. É também utilizado no momento em que o personagem se
-         * agacha
-         */
-        this.setFloor(233 + this.height);
-        this.setJumpVelocity(4.6); //Define a velocidade/altura do pulo
+       /**
+        * Define o chão dos personagens. É necessário quando se utiliza o
+        * método jump(), para que o personagem não ultrapasse esse valor quando
+        * cair do pulo. É também utilizado no momento em que o personagem se
+        * agacha
+        */
+       this.setFloor(477 + this.height);
+       this.setJumpVelocity(4.6); //Define a velocidade/altura do pulo
     }
 
     /**
@@ -69,13 +74,12 @@ public class Jogador extends Sprite {
      * Método responsável pela movimentação dos jogadores Ações possíveis: andar
      * para direita, esquerda, pular e agachar.
      * Troca os frames de pular e agachar
-     * (AJUSTAR: colocar essa troca no método alterarFrame()).
      */
     int aux = 0; //Variavel auxiliar para o audio do pulo
     public void mover() {
         if (ID == 1) {
-            //Define os movimentos possíveis para o mario = ID 1
-            //Define as teclas de movimento no eixo X, assim como a velocidade
+            // define os movimentos possíveis para o mario = ID 1
+            // define as teclas de movimento no eixo X, assim como a velocidade
             this.moveX(Keyboard.LEFT_KEY, Keyboard.RIGHT_KEY, 2);
             this.jump(Keyboard.UP_KEY);
             if (TECLADO.keyDown(Keyboard.DOWN_KEY) && !this.isJumping()) {
@@ -89,7 +93,7 @@ public class Jogador extends Sprite {
                 }
             }
         } else {
-            //Define os movimentos possíveis para o luigi = ID 2
+            // define os movimentos possíveis para o luigi = ID 2
             this.moveX(KeyEvent.VK_A, KeyEvent.VK_D, 2);
             this.jump(KeyEvent.VK_W);
             if (TECLADO.keyDown(KeyEvent.VK_S) && !this.isJumping()) {
@@ -119,8 +123,8 @@ public class Jogador extends Sprite {
     }
 
     /**
-     * Métidi responsável por verificar a colisão entre os personagens e os objetos
-     * na tela. Caso o personagem colida com uma moeda, adiciona um ponto a ele.
+     * Método responsável por verificar a colisão entre os personagens e os objetos na tela
+     * Caso o personagem colida com uma moeda, adiciona um ponto a ele
      * Caso o personagem colida com algum outro objeto, vai para a janela final,
      * passando o ID do adversário como vencedor.
      * obj.setX(-100) é definido para "remover" a moeda da tela assim que um jogador

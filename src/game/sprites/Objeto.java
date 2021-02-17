@@ -2,20 +2,30 @@ package game.sprites;
 
 import jplay.Sprite;
 
+/**
+* Classe que representa a entidade objeto
+*/
 public class Objeto extends Sprite {
 
     private final String NOME;
     private long velocidade;
     private int contador;
+    // atributo para aumentar a velocidade do foquete quando estiver perto dos personagens
+    boolean ativouTurbo = false;
 
+    /**
+     * Construtor
+     */
     public Objeto(String path, int x, int y, String nomeObj) {
         super(path);
         this.x = x;
         this.y = y;
 
         NOME = nomeObj;
-        velocidade = 3; //Define a velocidade inicial
-        contador = 0; //Define um contador auxiliar para incremento de velocidade
+        // velocidade inicial
+        this.velocidade = 3;
+        // contador auxiliar para incremento de velocidade
+        contador = 0;
     }
 
     /**
@@ -40,8 +50,17 @@ public class Objeto extends Sprite {
     public void transitar() {
         this.x -= velocidade;
         this.aumentarVelocidade();
+        // se o objeto é o foguete e está chegando no jogador a velocidade aumenta
+        if (this.NOME == "foguete" && this.x < 800 && !this.ativouTurbo) {
+            this.velocidade += 2;
+            this.ativouTurbo = true;
+        }
     }
 
+    /**
+     * Retorna o nome do objeto
+     * @return
+     */
     public String getNome() {
         return NOME;
     }

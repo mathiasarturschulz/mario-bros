@@ -20,11 +20,23 @@ Cena.java  -> Tela do jogo
 Final.java -> Tela de apresentação do ganhador
 Todas essas telas quando utilizadas eram abertas em uma nova aba
 
-- [ ] Analisar a possibilidade de atualizar a resolução do jogo, por exemplo: Colocar em tela cheia
-janela.setFullScreen();
+- [x] Analisar e implementar um botão para fechar o jogo
+Ao pressionar ESC fecha o jogo
 
-- [ ] Analisar a utilização das threads e encontrar possíveis melhorias
+- [x] Atualizar a resolução do jogo
+A nova resolução é 800x600, dessa forma foi necessário atualizar as imagens de fundo, entretanto a imagem de fundo na tela principal deve ter a resolução que foi setada na classe Window, o que tornou uma etapa trabalhosa pois foi necessário desenvolver uma imagem 800x600
+Com a nova resolução também foi necessário atualizar as localizações dos persongens e objetos na tela
 
-- [ ] Analisar a possibilidade de implementar um botão para fechar o jogo
+- [x] Corrigido bug de aparecer dois objetos juntos
+Pelo o que eu entendi aparece dois objetos de uma vez porque ocorreu um bug
+Todos os objetos são gerados antes de iniciar o jogo, como eram gerados 100 objetos a distância dos últimos objetos estava quebrando a biblioteca e setando eles em uma distância não definida pelo usuário e as vezes sem validação de colisão
+Um exemplo disso é quando tem um bloco e depois o cano, se passar abaixado entre os dois não resulta erro
 
-- [ ] Melhorar a documentação do projeto
+- [x] Adicionar um novo objeto, que é o foguete
+Ele é um pouco mais rápido que outros objetos
+
+- [x] Analisar a utilização das threads e encontrar possíveis melhorias
+
+- [x] Melhorar a documentação do projeto
+
+- [x] Atualizado o audio de fundo e corrigido um erro de que não apresentava o som de pulo
