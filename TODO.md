@@ -35,6 +35,8 @@ Um exemplo disso é quando tem um bloco e depois o cano, se passar abaixado entr
 - [x] Adicionar um novo objeto, que é o foguete
 Ele é um pouco mais rápido que outros objetos
 
-- [ ] Analisar a utilização das threads e encontrar possíveis melhorias
+- [x] Analisar a utilização das threads e encontrar possíveis melhorias
 
-- [ ] Melhorar a documentação do projeto
+- [x] Melhorar a documentação do projeto
+
+- [x] Atualizado o audio de fundo e corrigido um erro de que não apresentava o som de pulo
