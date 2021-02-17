@@ -9,12 +9,20 @@ import jplay.Window;
  */
 public class Final {
 
+    /**
+     * Construtor
+     */
     public Final(Window janela, int idVencedor) {
-        Cena.RODANDO = false; // Para a execução do jogo
+        // para a execução do jogo
+        Cena.RODANDO = false;
         Keyboard teclado = janela.getKeyboard();
 
         GameImage marioWins = new GameImage("imagens/marioWins.jpg");
+        marioWins.x = 275;
+        marioWins.y = 175;
         GameImage luigiWins = new GameImage("imagens/luigiWins.jpg");
+        luigiWins.x = 275;
+        luigiWins.y = 175;
 
         boolean isFinal = true;
 
