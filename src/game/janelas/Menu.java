@@ -30,11 +30,11 @@ public class Menu {
         // seta um tempo maximo para exibição de todos os frames
         fundo.setTotalDuration(1000);
 
-        // // inicia a thread responsável pelo áudio do jogo
-        // Thread audio = new Thread(new Audio());
-        // audio.start();
-        // // inicia a música de fundo
-        // Audio.executando = true;
+        // inicia a thread responsável pelo áudio do jogo
+        Thread audio = new Thread(new Audio());
+        audio.start();
+        // inicia a música de fundo
+        Audio.executando = true;
 
         boolean isMenu = true;
         while (isMenu) {
