@@ -7,7 +7,13 @@ import jplay.Window;
 /**
  * Classe da tela de fim de jogo
  */
-public class Final {
+public class Final implements Runnable {
+
+    int idVencedor;
+    Window janela;
+    Keyboard teclado;
+    GameImage marioWins;
+    GameImage luigiWins;
 
     /**
      * Construtor
@@ -15,15 +21,22 @@ public class Final {
     public Final(Window janela, int idVencedor) {
         // para a execução do jogo
         Cena.RODANDO = false;
-        Keyboard teclado = janela.getKeyboard();
+        this.janela = janela;
+        this.idVencedor = idVencedor;
+        this.teclado = janela.getKeyboard();
 
-        GameImage marioWins = new GameImage("imagens/marioWins.jpg");
-        marioWins.x = 275;
-        marioWins.y = 175;
-        GameImage luigiWins = new GameImage("imagens/luigiWins.jpg");
-        luigiWins.x = 275;
-        luigiWins.y = 175;
+        this.marioWins = new GameImage("imagens/marioWins.jpg");
+        this.marioWins.x = 275;
+        this.marioWins.y = 175;
+        this.luigiWins = new GameImage("imagens/luigiWins.jpg");
+        this.luigiWins.x = 275;
+        this.luigiWins.y = 175;
+    }
 
+    /**
+     * Método responsável por apresentar a mensagem de qual jogador ganhou a partida
+     */
+    public void run() {
         boolean isFinal = true;
 
         while (isFinal) {

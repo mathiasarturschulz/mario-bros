@@ -139,9 +139,9 @@ public class Jogador extends Sprite {
             } else {
                 Audio.bateu = true;
                 if (ID == 1) {
-                    new Final(janela, 2);
+                    new Thread(new Final(janela, 2)).start();
                 } else {
-                    new Final(janela, 1);
+                    new Thread(new Final(janela, 1)).start();
                 }
             }
         }
