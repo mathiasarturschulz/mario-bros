@@ -21,38 +21,37 @@ public class Cena implements Runnable {
     private final Parallax FUNDO;
     public final Jogador MARIO, LUIGI;
     public static List<Objeto> OBJETOS;
-    public static boolean rodando;
+    public static boolean RODANDO;
 
     /**
      * Construtor da classe
      */
     public Cena(Window JANELA) {
+    	OBJETOS = new ArrayList<>();
+    	RODANDO = true;
     	this.JANELA = JANELA;
-        rodando = true;
 
+    	// adiciona o fundo do jogo
         FUNDO = new Parallax();
         FUNDO.add("imagens/background.png");
         FUNDO.setVelAllLayers(1, 0);
 
+        // adiciona os jogadores
         MARIO = new Jogador(1, "imagens/mario.png", 4, JANELA);
         LUIGI = new Jogador(2, "imagens/luigi.png", 4, JANELA);
 
-        //Define as coordenadas iniciais de cada jogador
+        // adiciona as coordenadas iniciais dos jogadores
         MARIO.x = 30;
-        MARIO.y = 240;
+        MARIO.y = 477;
         LUIGI.x = 0;
-        LUIGI.y = 240;
-
-        OBJETOS = new ArrayList<>();
+        LUIGI.y = 477;
     }
 
     /**
-     * Método responsável por criar uma lista de objetos que são adicionados de
-     * forma aleatória na lista. OBS: Coordenadas X atribuídas a partir de
-     * testes, pode melhorar. As moedas são adicionas de forma aleatória quando
-     * um bloco é adicionado, podendo aparecer em cima do bloco, ou em baixo,
-     * onde o personagem deve agachar para pegá-la. Quando um cano é adicionado,
-     * a moeda só pode ser adicionada na parte superior
+     * Método responsável por criar uma lista de objetos que são adicionados de forma aleatória na lista
+     * As moedas são adicionas de forma aleatória quando um bloco é adicionado,
+     * podendo aparecer em cima do bloco, ou em baixo, onde o personagem deve agachar para pegá-la
+     * Quando um cano é adicionado, a moeda só pode ser adicionada na parte superior
      */
     private void adicionarObjetos() {
         String moedaIcon = "imagens/moeda.png";
@@ -63,15 +62,15 @@ public class Cena implements Runnable {
         int valor, valor2, moedaY;
 
         for (int i = 1; i <= 100; i++) {
-            moedaY = 185;
+            moedaY = 440;
             valor = r.nextInt(2);
             if (valor == 0) {
-                OBJETOS.add(new Objeto(canoIcon, 800 * i, 230, "cano"));
+                OBJETOS.add(new Objeto(canoIcon, 800 * i, 472, "cano"));
             } else {
                 valor2 = r.nextInt(2);
-                OBJETOS.add(new Objeto(blocoIcon, 800 * i, 230, "bloco"));
+                OBJETOS.add(new Objeto(blocoIcon, 800 * i, 472, "bloco"));
                 if (valor2 == 0) {
-                    moedaY = 260;
+                    moedaY = 506;
                 }
             }
 
@@ -94,41 +93,45 @@ public class Cena implements Runnable {
     }
 
     /**
-     * Método responsável pelo looping do jogo. Atualiza todos os objetos e
-     * personagens constantemente
+     * Método chamado a partir do start da thread, responsável pelo looping do jogo
+     * Atualizando todos os objetos e personagens constantemente
      */
     public void run() {
-        //Define uma imagem de placar, assim como a fonte das pontuações
+        // define uma imagem de placar e uma fonte para as pontuações
         GameImage placar = new GameImage("imagens/placar.png");
         Font fonte = new Font("Comic Sans MS", Font.TRUETYPE_FONT, 30);
         // acessa o teclado
         Keyboard teclado = JANELA.getKeyboard();
+        // cria uma lista com 100 objetos
+        this.adicionarObjetos();
 
-        this.adicionarObjetos(); //Adiciona os sprites de objetos em uma lista
-
-        while (rodando) {
+        while (RODANDO) {
             // se pressionou ESC fecha a janela e sai do jogo
             if (teclado.keyDown(Keyboard.ESCAPE_KEY)) {
                 JANELA.exit();
         	}
 
-            FUNDO.drawLayers(); //Desenha os layers criados, neste caso apenas 1
-            FUNDO.repeatLayers(800, 600, true); //Faz o fundo voltar as coordenadas iniciais
-            FUNDO.moveLayersStandardX(true); //Define a movimentação no eixo X para Esquerda
+            // apresenta as layers do background
+            FUNDO.drawLayers();
+            // faz o fundo voltar as coordenadas iniciais
+            FUNDO.repeatLayers(800, 600, true);
+            // define a movimentação do fundo no eixo X para Esquerda
+            FUNDO.moveLayersStandardX(true);
 
-            //Desenha os jogadores e habilita a movimentação dos mesmos
+            // apresenta os jogadores e habilita suas movimentações
             MARIO.draw();
             MARIO.mover();
             LUIGI.draw();
             LUIGI.mover();
 
-            //Desenha os objetos na tela
+            // apresenta os objetos na tela
             this.desenharObjetos();
 
-            //Desenha o placar na parte superior da tela
+            // apresenta o placar na tela
             placar.x = 300;
             placar.draw();
-            //Verificações feitas para deixar a pontuação centralizada a imagem do placar
+
+            // verificações para deixar a pontuação centralizada a imagem do placar
             if (MARIO.getMoedas() < 10) {
                 JANELA.drawText(Integer.toString(MARIO.getMoedas()), 344, 75, Color.ORANGE, fonte);
             } else {

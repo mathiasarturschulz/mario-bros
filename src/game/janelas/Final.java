@@ -4,10 +4,13 @@ import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
 
+/**
+ * Classe da tela de fim de jogo
+ */
 public class Final {
 
     public Final(Window janela, int idVencedor) {
-        Cena.rodando = false; // Para a execução do jogo
+        Cena.RODANDO = false; // Para a execução do jogo
         Keyboard teclado = janela.getKeyboard();
 
         GameImage marioWins = new GameImage("imagens/marioWins.jpg");

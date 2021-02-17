@@ -2,6 +2,9 @@ package game.sprites;
 
 import jplay.Sprite;
 
+/**
+* Classe que representa a entidade objeto
+*/
 public class Objeto extends Sprite {
 
     private final String NOME;
@@ -14,7 +17,8 @@ public class Objeto extends Sprite {
         this.y = y;
 
         NOME = nomeObj;
-        velocidade = 3; //Define a velocidade inicial
+        // velocidade inicial
+        velocidade = 3;
         contador = 0; //Define um contador auxiliar para incremento de velocidade
     }
 

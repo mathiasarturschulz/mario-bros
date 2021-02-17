@@ -8,6 +8,9 @@ import jplay.Keyboard;
 import jplay.Sprite;
 import jplay.Window;
 
+/**
+* Classe que representa a entidade jogador
+*/
 public class Jogador extends Sprite {
 
 	private Window janela;
@@ -20,16 +23,16 @@ public class Jogador extends Sprite {
         super(path, frames);
     	this.janela = janela;
 
+        ID = id;
         PONTUACAO = new Pontuacao(janela);
 
         TECLADO = janela.getKeyboard();
-        //Adiciona teclas não padrões do JPlay Keyboard
+        // adiciona as teclas não padrões do jPlay Keyboard
         TECLADO.addKey(KeyEvent.VK_A, Keyboard.DETECT_EVERY_PRESS);
         TECLADO.addKey(KeyEvent.VK_D, Keyboard.DETECT_EVERY_PRESS);
         TECLADO.addKey(KeyEvent.VK_W, Keyboard.DETECT_EVERY_PRESS);
         TECLADO.addKey(KeyEvent.VK_S, Keyboard.DETECT_EVERY_PRESS);
 
-        ID = id;
 
         /**
          * Define uma frequência e inicializa um contador, utilizados para auxiliar
@@ -38,14 +41,14 @@ public class Jogador extends Sprite {
         FREQUENCIA = 25;
         contador = 0;
 
-        /**
-         * Define o chão dos personagens. É necessário quando se utiliza o
-         * método jump(), para que o personagem não ultrapasse esse valor quando
-         * cair do pulo. É também utilizado no momento em que o personagem se
-         * agacha
-         */
-        this.setFloor(233 + this.height);
-        this.setJumpVelocity(4.6); //Define a velocidade/altura do pulo
+       /**
+        * Define o chão dos personagens. É necessário quando se utiliza o
+        * método jump(), para que o personagem não ultrapasse esse valor quando
+        * cair do pulo. É também utilizado no momento em que o personagem se
+        * agacha
+        */
+       this.setFloor(477 + this.height);
+       this.setJumpVelocity(4.6); //Define a velocidade/altura do pulo
     }
 
     /**
