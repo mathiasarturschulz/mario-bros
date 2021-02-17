@@ -56,7 +56,7 @@ public class Cena implements Runnable {
     private void adicionarObjetos() {
         String moedaIcon = "imagens/moeda.png";
         String canoIcon = "imagens/cano.png";
-        String blocoIcon = "imagens/bloco2.png";
+        String blocoIcon = "imagens/bloco.png";
         String foguete = "imagens/foguete.png";
 
         Random r = new Random();
