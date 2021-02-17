@@ -23,8 +23,9 @@ Todas essas telas quando utilizadas eram abertas em uma nova aba
 - [x] Analisar e implementar um botão para fechar o jogo
 Ao pressionar ESC fecha o jogo
 
-- [ ] Analisar a possibilidade de atualizar a resolução do jogo, por exemplo: Colocar em tela cheia
-janela.setFullScreen();
+- [x] Atualizar a resolução do jogo
+A nova resolução é 800x600, dessa forma foi necessário atualizar as imagens de fundo, entretanto a imagem de fundo na tela principal deve ter a resolução que foi setada na classe Window, o que tornou uma etapa trabalhosa pois foi necessário desenvolver uma imagem 800x600
+Com a nova resolução também foi necessário atualizar as localizações dos persongens e objetos na tela
 
 - [ ] Analisar a utilização das threads e encontrar possíveis melhorias
 
